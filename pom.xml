@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.3.2.RELEASE</version>
+		<!-- <version>2.3.2.RELEASE</version> -->
+		<version>2.6.2</version>
 	</parent>
 	<groupId>com.tui</groupId>
 	<artifactId>backend-technical-test</artifactId>
 	<version>2.0.0-SNAPSHOT</version>
 	<name>backend-technical-test</name>
-	<description>Create an Api rest that allows us to order the "pilotes" of the great Miquel Montoro</description>
+	<description>Create an Api rest that allows us to order the "pilotes"
+		of the great Miquel Montoro</description>
 
 	<properties>
-		<java.version>1.11</java.version>
+		<!-- <java.version>1.11</java.version> -->
+		<java.version>11</java.version>
 		<springdoc-openapi-ui.version>1.5.9</springdoc-openapi-ui.version>
+		<lombok.version>1.18.22</lombok.version>
 	</properties>
 
 	<dependencies>
@@ -23,7 +28,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -33,23 +37,61 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.junit.vintage</groupId>
-					<artifactId>junit-vintage-engine</artifactId>
-				</exclusion>
-			</exclusions>
+			<!-- <exclusions> -->
+			<!-- <exclusion> -->
+			<!-- <groupId>org.junit.vintage</groupId> -->
+			<!-- <artifactId>junit-vintage-engine</artifactId> -->
+			<!-- </exclusion> -->
+			<!-- </exclusions> -->
 		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>junit</groupId> -->
+		<!-- <artifactId>junit</artifactId> -->
+		<!-- </dependency> -->
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-ui</artifactId>
 			<version>${springdoc-openapi-ui.version}</version>
 		</dependency>
+		<!-- SPRING BOOT + SPRING DATA + H2 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<!-- in-memory database  -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+		<!--  SPRING BOOT + SPRING DATA MONGODB -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.boot</groupId> -->
+<!-- 			<artifactId>spring-boot-starter-data-mongodb</artifactId> -->
+<!-- 		</dependency> -->
+		<!--  SPRING BOOT + SPRING DATA MONGODB REACTIVE -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.springframework.boot</groupId> -->
+		<!-- <artifactId>spring-boot-starter-data-mongodb-reactive</artifactId> -->
+		<!-- </dependency> -->
+		<!-- Spring data mongodb -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.data</groupId> -->
+<!-- 			<artifactId>spring-data-mongodb</artifactId> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>io.projectreactor</groupId> -->
+<!-- 			<artifactId>reactor-test</artifactId> -->
+<!-- 			<scope>test</scope> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>de.flapdoodle.embed</groupId> -->
+<!-- 			<artifactId>de.flapdoodle.embed.mongo</artifactId> -->
+<!-- 			<scope>test</scope> -->
+<!-- 		</dependency> -->
 	</dependencies>
 
 	<build>
