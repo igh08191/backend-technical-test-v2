@@ -32,12 +32,12 @@ public class OrderController {
 
 	@Autowired
 	private OrderService orderService;
-	
+
 	@Timed("com.tui.order")
 	@PostMapping
 	public ResponseEntity<Order> createOrder(@RequestBody @Valid Order order) {
 		log.info("Order controller - create Order");
-		
+
 		return new ResponseEntity<>(this.orderService.createOrder(order), HttpStatus.CREATED);
 	}
 
@@ -52,20 +52,24 @@ public class OrderController {
 	@PreAuthorize("isAuthenticated()")
 	@Timed("com.tui.order.searchId")
 	@GetMapping("/{id}")
-	public ResponseEntity<Order> searchById(@PathVariable(name="id") String idOrder) {
+	public ResponseEntity<Order> searchById(@PathVariable(name = "id") String idOrder) {
 		log.info("Order controller - searchById");
-		return this.orderService.findOrder(idOrder).map(ResponseEntity::ok).
-				orElseGet(()->ResponseEntity.notFound().build());
+		return this.orderService.findOrder(idOrder).map(ResponseEntity::ok)
+				.orElseGet(() -> ResponseEntity.notFound().build());
 	}
 
 	@Timed("com.tui.order.update")
 	@PutMapping
 	public ResponseEntity<Order> updateOrder(@RequestBody @Valid Order order) {
 		log.info("Order controller - update");
-		
+
 		return this.orderService.findOrder(order.getNumber()).
-				filter(o->o.getCreated().isBefore(OffsetDateTime.now().minusMinutes(5))).
+				filter(o->o.getCreated().isAfter(OffsetDateTime.now().minusMinutes(5))).
 				map( o->ResponseEntity.ok(this.orderService.updateOrder(order))).
 				orElseGet(()->ResponseEntity.notFound().build());
+
+//		return this.orderService.updateOrder(order).
+//				map( o -> ResponseEntity.ok(o)).
+//				orElseGet(()->ResponseEntity.notFound().build());
 	}
 }
