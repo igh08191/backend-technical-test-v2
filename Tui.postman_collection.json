@@ -1,0 +1,216 @@
+{
+	"info": {
+		"_postman_id": "71170b76-7613-4d3b-963d-64574a068426",
+		"name": "Tui",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "crearOrden",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"deliveryAddress\": {\r\n    \"street\": \"string\",\r\n    \"postcode\": \"strin\",\r\n    \"city\": \"string\",\r\n    \"country\": \"string\"\r\n  },\r\n  \"pilotes\": 10,\r\n  \"client\": {\r\n        \"firstName\": \"string\",\r\n    \"lastName\": \"string\",\r\n    \"telephone\": \"stringstr\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tui/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tui",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crearCliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"deliveryAddress\": {\r\n    \"street\": \"string\",\r\n    \"postcode\": \"strin\",\r\n    \"city\": \"string\",\r\n    \"country\": \"string\"\r\n  },\r\n  \"pilotes\": 12,\r\n  \"client\": {\r\n        \"firstName\": \"string\",\r\n    \"lastName\": \"string\",\r\n    \"telephone\": \"stringstr\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tui/FooController/clients",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tui",
+						"FooController",
+						"clients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actualizarOrden",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"number\": \"4028810c7e49275c017e49358f190003\",\r\n    \"deliveryAddress\": {\r\n        \"idAddress\": 1,\r\n        \"street\": \"string\",\r\n        \"postcode\": \"strin\",\r\n        \"city\": \"string\",\r\n        \"country\": \"string\"\r\n    },\r\n    \"pilotes\": 14,\r\n    \"orderTotal\": null,\r\n    \"created\": \"2022-01-11T13:55:53.8927527+01:00\",\r\n    \"client\": {\r\n        \"idClient\": 1,\r\n        \"firstName\": \"string2\",\r\n        \"lastName\": \"string\",\r\n        \"telephone\": \"stringstr\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tui/FooController/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tui",
+						"FooController",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOrdenes",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/tui/FooController/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tui",
+						"FooController",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOrden",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/tui/FooController/orders/4028810c7e4a4ca2017e4a4cfbee0000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tui",
+						"FooController",
+						"orders",
+						"4028810c7e4a4ca2017e4a4cfbee0000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getClientes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/tui/FooController/clients",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tui",
+						"FooController",
+						"clients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getClienteByName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/tui/FooController/clients",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tui",
+						"FooController",
+						"clients"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
